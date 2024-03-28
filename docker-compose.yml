@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  satisfactory_server:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: "satisfactory_server"
+    volumes:
+      - ./satisfactory-vol:/app/satisfactory-vol:rw
+      - ./SavesGamesSatisfactory/.config:/home/lorris/.config/:rw
+    ports:
+      - "25565:25565/udp"
+      - "15777:15777/udp"
+      - "15000:15000/udp"
+    restart: always
+    
